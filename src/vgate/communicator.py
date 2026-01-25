@@ -234,7 +234,7 @@ class Communicator(doing.DoDoer):
     def request(self, said, resource, action, actor, data):
         """
         Generate and launch HTTP request to remote webhook URL.
-        Adds custom Vgate-Resource and Vgate-Timestamp headers.
+        Adds custom vgate-Resource and vgate-Timestamp headers.
 
         Parameters:
             said (str): qb64 SAID of credential
@@ -257,8 +257,8 @@ class Communicator(doing.DoDoer):
                 ('Content-Type', 'application/json'),
                 ('Content-Length', len(raw)),
                 ('Connection', 'close'),
-                ('Vgate-Resource', resource),
-                ('Vgate-Timestamp', helping.nowIso8601()),
+                ('vgate-Resource', resource),
+                ('vgate-Timestamp', helping.nowIso8601()),
             ]
         )
         path = purl.path or '/'
@@ -272,7 +272,7 @@ class Communicator(doing.DoDoer):
             'POST',
             path,
             headers,
-            fields=['Vgate-Resource', '@method', '@path', 'Vgate-Timestamp'],
+            fields=['vgate-Resource', '@method', '@path', 'vgate-Timestamp'],
             alg='ed25519',
             keyid=keyid,
         )
