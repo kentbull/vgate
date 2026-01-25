@@ -9,21 +9,31 @@ EXN Message handling
 import datetime
 import json
 from base64 import urlsafe_b64encode as encodeB64
-from typing import List
 from urllib import parse
 
-from hio.base import Doer, doing
+from hio.base import doing
 from hio.core import http
 from hio.help import Hict
 from keri import help, kering
 from keri.core import coring
 from keri.end import ending
 from keri.help import helping
-from keri.peer import exchanging
 
 from viking import httping
 
 logger = help.ogler.getLogger()
+
+QVI_SCHEMA = "EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao"
+LE_SCHEMA = "ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY"
+OOR_AUTH_SCHEMA = "EKA57bKBKxr_kN7iN5i7lMUxpMG-s19dRcmov1iDxz-E"
+OOR_SCHEMA = "EBNaNu-M9P5cgrnfl2Fvymy4E_jvxxyjb70PRtiANlJy"
+
+type_to_name = {
+    QVI_SCHEMA: "QVI",
+    LE_SCHEMA: "LE",
+    OOR_AUTH_SCHEMA: "OOR_AUTH",
+    OOR_SCHEMA: "OOR",
+}
 
 
 class Communicator(doing.DoDoer):
@@ -234,7 +244,8 @@ class Communicator(doing.DoDoer):
             resource (str): the resource type that triggered the event
         """
         purl = parse.urlparse(self.hook)
-        client = http.clienting.Client(hostname=purl.hostname, port=purl.port)
+        hostname = purl.hostname if purl.hostname else 'localhost'
+        client = http.clienting.Client(hostname=hostname, port=purl.port)
         clientDoer = http.clienting.ClientDoer(client=client)
         self.extend([clientDoer])
 
@@ -252,7 +263,9 @@ class Communicator(doing.DoDoer):
         )
         path = purl.path or '/'
 
-        keyid = encodeB64(self.hab.kever.serder.verfers[0].raw).decode('utf-8')
+        lastKelEvt = self.hab.kever.serder
+        lastPubKeyVerfer = lastKelEvt.verfers[0]
+        keyid = encodeB64(lastPubKeyVerfer.raw).decode('utf-8')
         header, unq = httping.siginput(
             self.hab,
             'sig0',

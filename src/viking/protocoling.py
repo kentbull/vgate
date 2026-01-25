@@ -1,8 +1,8 @@
 import os
 from collections import namedtuple
 
-from .. import help
-from ..peer import exchanging
+from keri import help
+from keri.peer import exchanging
 
 logger = help.ogler.getLogger()
 
