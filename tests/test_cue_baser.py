@@ -9,19 +9,19 @@ import os
 import lmdb
 from keri.db import subing
 
-import viking
+import vgate
 
 
 def test_baser():
     """
     Test Baser class
     """
-    baser = viking.CueBaser(reopen=True)
-    assert isinstance(baser, viking.CueBaser)
+    baser = vgate.CueBaser(reopen=True)
+    assert isinstance(baser, vgate.CueBaser)
     assert baser.name == 'cb'
     assert baser.temp is False
     assert isinstance(baser.env, lmdb.Environment)
-    assert baser.path.endswith('viking/db/cb')
+    assert baser.path.endswith('vgate/db/cb')
     assert baser.env.path() == baser.path
     assert os.path.exists(baser.path)
 

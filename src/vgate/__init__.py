@@ -12,8 +12,8 @@ __all__ = ['setup']
 
 def setup(hby: habbing.Habery, alias: str) -> [doing.Doer]:
     """
-    Load and return the doers for the Viking module.
-    This function is used to initialize the Viking module's doers.
+    Load and return the doers for the Vgate module.
+    This function is used to initialize the Vgate module's doers.
     """
     hab = hby.habByName(name=alias)
     notifier = notifying.Notifier(hby=hby)

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 """
-VIKING
-viking module
+VGATE
+vgate module
 
 Database support
 """
@@ -26,9 +26,9 @@ class CueBaser(dbing.LMDBer):
         reopen (bool): Whether to reopen the database.
     """
 
-    TailDirPath = 'viking/db'
-    AltTailDirPath = '.viking/db'
-    TempPrefix = 'viking_db_'
+    TailDirPath = 'vgate/db'
+    AltTailDirPath = '.vgate/db'
+    TempPrefix = 'vgate_db_'
 
     def __init__(self, name='cb', head_dir_path=None, reopen=True, **kwa):
         """

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 """
-Viking
-viking.core.handling module
+Vgate
+vgate.core.handling module
 
 EXN Message handling
 """
@@ -19,7 +19,7 @@ from keri.core import coring
 from keri.end import ending
 from keri.help import helping
 
-from viking import httping
+from vgate import httping
 
 logger = help.ogler.getLogger()
 
@@ -234,7 +234,7 @@ class Communicator(doing.DoDoer):
     def request(self, said, resource, action, actor, data):
         """
         Generate and launch HTTP request to remote webhook URL.
-        Adds custom Viking-Resource and Viking-Timestamp headers.
+        Adds custom Vgate-Resource and Vgate-Timestamp headers.
 
         Parameters:
             said (str): qb64 SAID of credential
@@ -257,8 +257,8 @@ class Communicator(doing.DoDoer):
                 ('Content-Type', 'application/json'),
                 ('Content-Length', len(raw)),
                 ('Connection', 'close'),
-                ('Viking-Resource', resource),
-                ('Viking-Timestamp', helping.nowIso8601()),
+                ('Vgate-Resource', resource),
+                ('Vgate-Timestamp', helping.nowIso8601()),
             ]
         )
         path = purl.path or '/'
@@ -272,7 +272,7 @@ class Communicator(doing.DoDoer):
             'POST',
             path,
             headers,
-            fields=['Viking-Resource', '@method', '@path', 'Viking-Timestamp'],
+            fields=['Vgate-Resource', '@method', '@path', 'Vgate-Timestamp'],
             alg='ed25519',
             keyid=keyid,
         )
