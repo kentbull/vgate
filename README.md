@@ -7,3 +7,8 @@ Verifiable, Gated Authentic Transforming End Verifier
 
 Generic use of a grant handler for vLEI systems.
 
+## Publishing
+
+1. Tick the version string in pyproject.toml and 
+2. `make build`, which just runs `uv build`
+2. `twine upload dist/vgate-`

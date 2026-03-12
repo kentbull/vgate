@@ -6,3 +6,6 @@ fmt:
 check:
 	uv tool run ruff check --select I
 	uv tool run ruff format --check
+
+build:
+	uv build

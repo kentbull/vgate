@@ -23,16 +23,16 @@ from vgate import httping
 
 logger = help.ogler.getLogger()
 
-QVI_SCHEMA = "EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao"
-LE_SCHEMA = "ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY"
-OOR_AUTH_SCHEMA = "EKA57bKBKxr_kN7iN5i7lMUxpMG-s19dRcmov1iDxz-E"
-OOR_SCHEMA = "EBNaNu-M9P5cgrnfl2Fvymy4E_jvxxyjb70PRtiANlJy"
+QVI_SCHEMA = 'EBfdlu8R27Fbx-ehrqwImnK-8Cm79sqbAQ4MmvEAYqao'
+LE_SCHEMA = 'ENPXp1vQzRF6JwIuS-mp2U8Uf1MoADoP_GqQ62VsDZWY'
+OOR_AUTH_SCHEMA = 'EKA57bKBKxr_kN7iN5i7lMUxpMG-s19dRcmov1iDxz-E'
+OOR_SCHEMA = 'EBNaNu-M9P5cgrnfl2Fvymy4E_jvxxyjb70PRtiANlJy'
 
 type_to_name = {
-    QVI_SCHEMA: "QVI",
-    LE_SCHEMA: "LE",
-    OOR_AUTH_SCHEMA: "OOR_AUTH",
-    OOR_SCHEMA: "OOR",
+    QVI_SCHEMA: 'QVI',
+    LE_SCHEMA: 'LE',
+    OOR_AUTH_SCHEMA: 'OOR_AUTH',
+    OOR_SCHEMA: 'OOR',
 }
 
 
